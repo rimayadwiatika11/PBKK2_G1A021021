@@ -1,0 +1,76 @@
+/* style.css */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #fdbf62;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    justify-content: center;
+    min-height: 83vh;
+    position: relative; /* Menjadikan body sebagai referensi posisi */
+}
+
+h1 {
+    font-size: 1.8em;
+    text-align: center;
+    margin-bottom: 20px;
+    color: #fdfdfd;
+    position: absolute;
+    top: 20px; /* Mengatur jarak dari atas */
+    left: 50%;
+    transform: translateX(-50%); /* Pusatkan horizontal */
+}
+
+h2 {
+    font-size: 1.1em;
+    text-align: center;
+    color: #e8ac4c;
+    position: absolute;
+    top: 65px; /* Mengatur jarak antara h1 dan h2 */
+    left: 3%;
+    transform: translateX(-50%); /* Pusatkan horizontal */
+}
+
+a {
+    color: #228eed;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+.book-item {
+    display: flex;
+    justify-content: space-between;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    padding: 20px;
+    margin-bottom: 20px;
+    position: relative; /* Menjadikan book-item sebagai referensi posisi */
+}
+
+.book-item div {
+    flex: 1;
+}
+
+.book-item a {
+    color: #f7ac33;
+    text-decoration: none;
+    margin-left: 80%;
+    margin-bottom: 50%;
+}
+
+.book-item a:hover {
+    text-decoration: underline;
+}
+
+.book-item .delete-form {
+    display: inline-block;
+    margin-left: 80%;
+}
+
+/* Add more styles as needed for your specific design */
