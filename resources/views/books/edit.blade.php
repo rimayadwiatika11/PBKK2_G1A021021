@@ -16,11 +16,15 @@
 
     <div>
         Penulis:
-        <input type="text" name="author" value="{{ old('author', $book->author) }}" />
+        <select name="author_id">
+            @foreach ($authors as $author)
+                <option value="{{ $author->id }}">{{ $author->name }}</option>
+            @endforeach
+        </select>
 
         <br>
 
-        @error('author')
+        @error('author_id')
             <p>{{ $message }}</p>
         @enderror
     </div>

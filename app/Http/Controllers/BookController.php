@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Author;
 use App\Models\Book;
 use Illuminate\Http\Request;
 
@@ -16,7 +17,8 @@ class BookController extends Controller
 
     public function create()
     {
-        return view('books.create');
+        $authors = Author::all();
+        return view('books.create', compact('authors'));
     }
 
     public function store(Request $request)
@@ -24,7 +26,7 @@ class BookController extends Controller
         //1. validasi
         $request->validate([
             'title' => 'required|max:255|unique:books,title',
-            'author' => 'required|max:255',
+            'author_id' => 'required|max:255',
             'description' => 'nullable',
         ]);
 
@@ -32,7 +34,7 @@ class BookController extends Controller
         $book = new Book();
 
         $book->title = $request->title;
-        $book->author = $request->author;
+        $book->author_id = $request->author_id;
         $book->description = $request->description;
 
         $book->save();
@@ -50,7 +52,8 @@ class BookController extends Controller
 
     public function edit(Book $book)
     {
-        return view('books.edit', compact('book'));
+        $authors = Author::all();
+        return view('books.edit', compact('authors', 'book'));
     }
 
     public function update(Request $request, Book $book)
@@ -58,13 +61,13 @@ class BookController extends Controller
         //1. validasi
         $request->validate([
             'title' => 'required|max:255|unique:books,title,' . $book->id,
-            'author' => 'required|max:255',
+            'author_id' => 'required|max:255',
             'description' => 'nullable',
         ]);
 
         //2. update
         $book->title = $request->title;
-        $book->author = $request->author;
+        $book->author_id = $request->author_id;
         $book->description = $request->description;
 
         $book->save();

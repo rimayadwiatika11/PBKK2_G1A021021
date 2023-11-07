@@ -25,6 +25,7 @@ Route::get('/abc', [HomeController::class, 'abc']);
 
 Route::get('/siswa', [SiswaController::class, 'index'])->name('siswa.index');
 Route::get('/siswa/create', [SiswaController::class, 'create'])->name('siswa.create');
+
 Route::get('/buku', [BukuController::class, 'index'])->name('buku.index');
 
 Route::get('/books', [BookController::class, 'index'])->name('books.index');
@@ -46,4 +47,10 @@ Route::put('/author/{author}', [AuthorController::class, 'update'])->name('autho
 Route::delete('/author{author}', [AuthorController::class,'destroy'])->name('author.destroy');
 // Route::resource('author', [AuthorController::class]);
 
+Route::get('/halaman-a', function () {
+    return view('contoh.halaman-a');
+});
 
+Route::get('/halaman-b', function () {
+    return view('contoh.halaman-b');
+});
