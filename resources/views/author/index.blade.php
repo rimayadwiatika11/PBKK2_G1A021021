@@ -33,6 +33,10 @@
                     <td>
                         <a href="{{ route('author.show', $Author->id) }}">Lihat</a>
                         <a href="{{ route('author.edit', $Author->id) }}">Edit</a>
+                        <a href action="{{ route('author.destroy', $Author->id) }}" method="post" class="delete-form">
+                            @csrf
+                            @method('DELETE')
+                            <input type="submit" value="Hapus">
                     </td>
                 </tr>
             @endforeach
